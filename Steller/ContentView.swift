@@ -15,15 +15,15 @@ struct ContentView: View {
     @State var stories: [Story] = (0...100).map { Story(number: $0) }
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                    Color.white
-                        .edgesIgnoringSafeArea(.all)
-                VStack {
-                    ZStack {
-                        Color(white: 0.9).frame(width: nil, height: 44, alignment: .center)
-                        Text("STELLER").foregroundColor(.black)
-                    }
+        ZStack {
+            Color.white
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                ZStack {
+                    Color(white: 0.9).frame(width: nil, height: 44, alignment: .center)
+                    Text("STELLER").foregroundColor(.black)
+                }
+                GeometryReader { geometry in
                     ScrollView {
                         Grid(self.stories) { item in
                             Card(item: item).onTapGesture {
