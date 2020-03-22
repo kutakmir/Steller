@@ -26,6 +26,9 @@ struct Card: View {
                         Image(systemName: "suit.heart.fill")
                         Text("\(item.likes.count)")
                     }.foregroundColor(item.likes.current_user ? .blue : .gray)
+                        .onTapGesture {
+                            print("Like! \(self.item.title)")
+                    }
                 }
             }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 4))
         }
