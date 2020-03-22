@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE52960524280E910003D4D9 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52960424280E910003D4D9 /* Story.swift */; };
+		CE529607242813500003D4D9 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE529606242813500003D4D9 /* Color+Hex.swift */; };
+		CE52960A242816150003D4D9 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = CE529609242816150003D4D9 /* URLImage */; };
 		CEA095542427EAB200F81928 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA095532427EAB200F81928 /* AppDelegate.swift */; };
 		CEA095562427EAB200F81928 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA095552427EAB200F81928 /* SceneDelegate.swift */; };
 		CEA095582427EAB200F81928 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA095572427EAB200F81928 /* ContentView.swift */; };
@@ -39,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE52960424280E910003D4D9 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		CE529606242813500003D4D9 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CEA095502427EAB200F81928 /* Steller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA095532427EAB200F81928 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA095552427EAB200F81928 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA095882427ED6900F81928 /* Grid in Frameworks */,
+				CE52960A242816150003D4D9 /* URLImage in Frameworks */,
 				CEA095852427EB0600F81928 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +117,9 @@
 				CEA095552427EAB200F81928 /* SceneDelegate.swift */,
 				CEA0958B2428024800F81928 /* HostingViewController.swift */,
 				CEA095572427EAB200F81928 /* ContentView.swift */,
+				CE52960424280E910003D4D9 /* Story.swift */,
 				CEA095892427F21200F81928 /* Card.swift */,
+				CE529606242813500003D4D9 /* Color+Hex.swift */,
 				CEA095592427EAB500F81928 /* Assets.xcassets */,
 				CEA0955E2427EAB500F81928 /* LaunchScreen.storyboard */,
 				CEA095612427EAB500F81928 /* Info.plist */,
@@ -165,6 +173,7 @@
 			packageProductDependencies = (
 				CEA095842427EB0600F81928 /* Swinject */,
 				CEA095872427ED6900F81928 /* Grid */,
+				CE529609242816150003D4D9 /* URLImage */,
 			);
 			productName = Steller;
 			productReference = CEA095502427EAB200F81928 /* Steller.app */;
@@ -241,6 +250,7 @@
 			packageReferences = (
 				CEA095832427EB0600F81928 /* XCRemoteSwiftPackageReference "Swinject" */,
 				CEA095862427ED6900F81928 /* XCRemoteSwiftPackageReference "swiftui-extensions" */,
+				CE529608242816150003D4D9 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = CEA095512427EAB200F81928 /* Products */;
 			projectDirPath = "";
@@ -285,11 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE529607242813500003D4D9 /* Color+Hex.swift in Sources */,
 				CEA095542427EAB200F81928 /* AppDelegate.swift in Sources */,
 				CEA095562427EAB200F81928 /* SceneDelegate.swift in Sources */,
 				CEA095582427EAB200F81928 /* ContentView.swift in Sources */,
 				CEA0958C2428024800F81928 /* HostingViewController.swift in Sources */,
 				CEA0958A2427F21200F81928 /* Card.swift in Sources */,
+				CE52960524280E910003D4D9 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +622,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CE529608242816150003D4D9 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.12;
+			};
+		};
 		CEA095832427EB0600F81928 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -629,6 +649,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CE529609242816150003D4D9 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE529608242816150003D4D9 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
 		CEA095842427EB0600F81928 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEA095832427EB0600F81928 /* XCRemoteSwiftPackageReference "Swinject" */;

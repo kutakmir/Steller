@@ -1,4 +1,5 @@
 import SwiftUI
+import URLImage
 
 struct Card: View {
     let item: Story
@@ -6,23 +7,25 @@ struct Card: View {
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             ZStack(alignment: .init(horizontal: .center, vertical: .center)) {
-                Rectangle()
-                    .foregroundColor(item.color)
-                Text("\(item.number)")
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .opacity(0.5)
+                URLImage(item.cover_src, placeholder: { _ in
+                    Color(hex: self.item.cover_bg, alpha: 1.0)
+                }) {
+                    $0.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipped()
+                }
             }
             .cornerRadius(8)
             HStack(alignment: .center, spacing: 0) {
-                Text(item.authorName).foregroundColor(.blue)
+                Text(item.user.display_name).foregroundColor(.blue)
                 Spacer()
 
-                if item.likesCount > 0 {
+                if item.likes.count > 0 {
                     HStack(alignment: .center, spacing: 8) {
                         Image(systemName: "suit.heart.fill")
-                        Text("\(item.likesCount)")
-                    }.foregroundColor(item.likedByCurrentUser ? .blue : .gray)
+                        Text("\(item.likes.count)")
+                    }.foregroundColor(item.likes.current_user ? .blue : .gray)
                 }
             }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 4))
         }
@@ -32,7 +35,7 @@ struct Card: View {
 #if DEBUG
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        Card(item: Story(number: 3))
+        Card(item: Story(id: "asdfadsf", title: "Hello", likes: Likes(count: 32, current_user: true), user: User(id: "asdf", display_name: "Henry"), cover_src: URL(string: "https://d2rbodpj0xodc.cloudfront.net/stories/1797860797901178606/16c50d2b-282f-462f-91fb-a7c504d7a9de.jpeg")!, cover_bg: "#ABB0B2"))
     }
 }
 #endif

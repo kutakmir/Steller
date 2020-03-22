@@ -12,7 +12,7 @@ import Grid
 struct ContentView: View {
 
     var viewModel: [String]?
-    @State var stories: [Story] = (0...100).map { Story(number: $0) }
+    @State var stories = [Story]()
 
     var body: some View {
         ZStack {
@@ -36,7 +36,26 @@ struct ContentView: View {
                     )
                 }
             }
+        }.onAppear(perform: loadData)
+    }
+
+    func loadData() {
+        guard let url = URL(string: "https://api.steller.co/v1/users/76794126980351029/stories") else {
+            return
         }
+        let request = URLRequest(url: url)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode(FeedResponse.self, from: data) {
+                    // we have good data – go back to the main thread
+                    DispatchQueue.main.async {
+                        // update our UI
+                        self.stories = decodedResponse.data
+                    }
+                }
+            }
+        }.resume()
     }
 }
 
@@ -44,21 +63,4 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-}
-
-extension Color {
-    private static let all: [Color] = [.red, .green, .blue, .orange, .yellow, .pink, .purple]
-
-    static var random: Color {
-        all.randomElement()!
-    }
-}
-
-struct Story: Identifiable {
-    let number: Int
-    let id: UUID = UUID()
-    let likesCount: Int = .random(in: 0..<99)
-    let color: Color = .random
-    let likedByCurrentUser: Bool = .random()
-    let authorName: String = ["Benjamin", "Jack", "William", "Margareth", "Jane", "Adele"].randomElement()!
 }
