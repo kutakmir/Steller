@@ -3,16 +3,16 @@
 //  Steller
 //
 //  Created by Miroslav Kutak on 22/03/2020.
-//  Copyright © 2020 Miroslav Kutak. All rights reserved.
+//  Copyright © 2020 Curly Bracers. All rights reserved.
 //
 
 import SwiftUI
 import Grid
 
-struct ContentView: View {
+struct ContentView<T: StoryPresentable>: View {
 
     var viewModel: [String]?
-    @State var stories = [Story]()
+    @State var stories = [T]()
 
     var body: some View {
         ZStack {
@@ -20,14 +20,14 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 ZStack {
-                    Color(white: 0.9).frame(width: nil, height: 44, alignment: .center)
-                    Text("STELLER").foregroundColor(.black)
+                    Color.TopBar.background.frame(width: nil, height: 44, alignment: .center)
+                    Text(Localize("global.title")).foregroundColor(Color.TopBar.title)
                 }
                 GeometryReader { geometry in
                     ScrollView {
                         Grid(self.stories) { item in
                             Card(item: item).onTapGesture {
-                                print("tapped: \(item)")
+                                Log("tapped: \(item)")
                             }
                         }
                     }
@@ -51,7 +51,7 @@ struct ContentView: View {
                     // we have good data – go back to the main thread
                     DispatchQueue.main.async {
                         // update our UI
-                        self.stories = decodedResponse.data
+                        self.stories = decodedResponse.data as? [T] ?? []
                     }
                 }
             }
@@ -61,6 +61,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView<Story>()
     }
 }

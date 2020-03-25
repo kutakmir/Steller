@@ -1,8 +1,16 @@
+//
+//  Card.swift
+//  Steller
+//
+//  Created by Miroslav Kutak on 22/03/2020.
+//  Copyright © 2020 Curly Bracers. All rights reserved.
+//
+
 import SwiftUI
 import URLImage
 
-struct Card: View {
-    let item: Story
+struct Card<T: StoryPresentable>: View {
+    let item: T
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
@@ -18,17 +26,20 @@ struct Card: View {
             }
             .cornerRadius(8)
             HStack(alignment: .center, spacing: 0) {
-                Text(item.user.display_name).foregroundColor(.blue)
+                Text(item.user.display_name).foregroundColor(Color.Main.activeElement).onTapGesture {
+                    Log("User profile selected! \(self.item.user.display_name)")
+                }
                 Spacer()
 
                 if item.likes.count > 0 {
                     HStack(alignment: .center, spacing: 8) {
-                        Image(systemName: "suit.heart.fill")
-                        Text("\(item.likes.count)")
-                    }.foregroundColor(item.likes.current_user ? .blue : .gray)
-                        .onTapGesture {
-                            print("Like! \(self.item.title)")
-                    }
+                        Image.Like.filled.onTapGesture {
+                            Log("Like! \(self.item.title)")
+                        }
+                        Text("\(item.likes.count)").onTapGesture {
+                                Log("Display the list of people who liked this story...")
+                        }
+                    }.foregroundColor(item.likes.current_user ? Color.Like.currentUser : Color.Like.normal)
                 }
             }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 4))
         }
@@ -38,7 +49,7 @@ struct Card: View {
 #if DEBUG
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        Card(item: Story(id: "asdfadsf", title: "Hello", likes: Likes(count: 32, current_user: true), user: User(id: "asdf", display_name: "Henry"), cover_src: URL(string: "https://d2rbodpj0xodc.cloudfront.net/stories/1797860797901178606/16c50d2b-282f-462f-91fb-a7c504d7a9de.jpeg")!, cover_bg: "#ABB0B2"))
+        Card(item: Story(id: "asdfadsf", title: "Hello", likes: Likes(count: 32, current_user: true), user: User(id: "asdf", display_name: "Henry", avatar_image_url: nil), cover_src: URL(string: "https://d2rbodpj0xodc.cloudfront.net/stories/1797860797901178606/16c50d2b-282f-462f-91fb-a7c504d7a9de.jpeg")!, cover_bg: "#ABB0B2"))
     }
 }
 #endif

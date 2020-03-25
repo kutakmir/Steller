@@ -3,7 +3,7 @@
 //  StellerTests
 //
 //  Created by Miroslav Kutak on 22/03/2020.
-//  Copyright © 2020 Miroslav Kutak. All rights reserved.
+//  Copyright © 2020 Curly Bracers. All rights reserved.
 //
 
 import XCTest
