@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class HostingController<T: StoryPresentable>: UIHostingController<ContentView<T>> {
+class HostingController<Content> : UIHostingController<Content> where Content : View {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }

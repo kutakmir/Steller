@@ -14,7 +14,11 @@ struct ContentView<T: StoryPresentable>: View {
     var viewModel: [String]?
     @State var stories = [T]()
 
+    //    @EnvironmentObject var store: Store<AppState>
+    @State var displaysStoryPreview: Bool = false
+
     var body: some View {
+        
         ZStack {
             Color.white
                 .edgesIgnoringSafeArea(.all)
@@ -27,7 +31,9 @@ struct ContentView<T: StoryPresentable>: View {
                     ScrollView {
                         Grid(self.stories) { item in
                             Card(item: item).onTapGesture {
-                                Log("tapped: \(item)")
+                                withAnimation {
+                                    self.displaysStoryPreview = true
+                                }
                             }
                         }
                     }
@@ -35,6 +41,13 @@ struct ContentView<T: StoryPresentable>: View {
                         ModularGridStyle(columns: .count(2), rows: .fixed(geometry.size.height/2))
                     )
                 }
+            }
+            if self.displaysStoryPreview {
+                StoryPreview(stories: self.stories, selectedStory: 0, onDismiss: {
+                    withAnimation {
+                        self.displaysStoryPreview = false
+                    }
+                })
             }
         }.onAppear(perform: loadData)
     }

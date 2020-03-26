@@ -20,6 +20,7 @@ protocol StoryPresentable: Identifiable {
     var user: User { get }
     var cover_src: URL { get }
     var cover_bg: String { get }
+    var snippet: Snippet { get }
 }
 
 struct Story: Codable, StoryPresentable {
@@ -29,6 +30,7 @@ struct Story: Codable, StoryPresentable {
     let user: User
     let cover_src: URL
     let cover_bg: String
+    let snippet: Snippet
 }
 
 struct Likes: Codable {
@@ -44,6 +46,10 @@ struct User: Codable, Identifiable {
 
 struct FeedResponse: Codable {
     let data: [Story]
+}
+
+struct Snippet: Codable {
+    let text: String
 }
 
 // DEV INTERVIEW NOTE: Leaving a sample response here for a better documentation

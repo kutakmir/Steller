@@ -19,9 +19,9 @@ struct Card<T: StoryPresentable>: View {
                     Color(hex: self.item.cover_bg, alpha: 1.0)
                 }) {
                     $0.image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipped()
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipped()
                 }
             }
             .cornerRadius(8)
@@ -37,7 +37,7 @@ struct Card<T: StoryPresentable>: View {
                             Log("Like! \(self.item.title)")
                         }
                         Text("\(item.likes.count)").onTapGesture {
-                                Log("Display the list of people who liked this story...")
+                            Log("Display the list of people who liked this story...")
                         }
                     }.foregroundColor(item.likes.current_user ? Color.Like.currentUser : Color.Like.normal)
                 }
@@ -49,7 +49,7 @@ struct Card<T: StoryPresentable>: View {
 #if DEBUG
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        Card(item: Story(id: "asdfadsf", title: "Hello", likes: Likes(count: 32, current_user: true), user: User(id: "asdf", display_name: "Henry", avatar_image_url: nil), cover_src: URL(string: "https://d2rbodpj0xodc.cloudfront.net/stories/1797860797901178606/16c50d2b-282f-462f-91fb-a7c504d7a9de.jpeg")!, cover_bg: "#ABB0B2"))
+        StoryPreviewPage(item: Story(id: "asdfadsf", title: "Hello", likes: Likes(count: 32, current_user: true), user: User(id: "asdf", display_name: "Henry", avatar_image_url: nil), cover_src: URL(string: "https://d2rbodpj0xodc.cloudfront.net/stories/1797860797901178606/16c50d2b-282f-462f-91fb-a7c504d7a9de.jpeg")!, cover_bg: "#ABB0B2", snippet: Snippet(text: "asdflk asldkfj alskdfj as0d9f uas9df a0s9d asdf")))
     }
 }
 #endif

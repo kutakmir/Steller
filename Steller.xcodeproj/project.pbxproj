@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE07D436242B6D6A001F8311 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE07D438242B6D6A001F8311 /* Localizable.strings */; };
+		CE07D445242B73CD001F8311 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = CE07D444242B73CD001F8311 /* swiftlint.yml */; };
+		CE07D447242B87A5001F8311 /* StoryPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07D446242B87A5001F8311 /* StoryPreview.swift */; };
+		CE07D449242C10AD001F8311 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07D448242C10AD001F8311 /* AppState.swift */; };
 		CE52960524280E910003D4D9 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52960424280E910003D4D9 /* Story.swift */; };
 		CE529607242813500003D4D9 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE529606242813500003D4D9 /* Color+Hex.swift */; };
 		CE52960A242816150003D4D9 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = CE529609242816150003D4D9 /* URLImage */; };
@@ -26,7 +29,9 @@
 		CEA095852427EB0600F81928 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CEA095842427EB0600F81928 /* Swinject */; };
 		CEA095882427ED6900F81928 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = CEA095872427ED6900F81928 /* Grid */; };
 		CEA0958A2427F21200F81928 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA095892427F21200F81928 /* Card.swift */; };
-		CEA0958C2428024800F81928 /* HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0958B2428024800F81928 /* HostingViewController.swift */; };
+		CEB29A93242C1C62004F1CC7 /* HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB29A92242C1C62004F1CC7 /* HostingViewController.swift */; };
+		CEB29A95242C1E30004F1CC7 /* StoryPreviewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB29A94242C1E30004F1CC7 /* StoryPreviewPage.swift */; };
+		CEB29A97242C218D004F1CC7 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB29A96242C218D004F1CC7 /* Triangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,9 @@
 		CE07D43E242B6EE1001F8311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE07D43F242B6EF3001F8311 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE07D440242B6EF3001F8311 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE07D444242B73CD001F8311 /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
+		CE07D446242B87A5001F8311 /* StoryPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPreview.swift; sourceTree = "<group>"; };
+		CE07D448242C10AD001F8311 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		CE52960424280E910003D4D9 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		CE529606242813500003D4D9 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		CE52960B24281E380003D4D9 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -71,7 +79,9 @@
 		CEA095752427EAB600F81928 /* StellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellerUITests.swift; sourceTree = "<group>"; };
 		CEA095772427EAB600F81928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA095892427F21200F81928 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		CEA0958B2428024800F81928 /* HostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingViewController.swift; sourceTree = "<group>"; };
+		CEB29A92242C1C62004F1CC7 /* HostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostingViewController.swift; sourceTree = "<group>"; };
+		CEB29A94242C1E30004F1CC7 /* StoryPreviewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPreviewPage.swift; sourceTree = "<group>"; };
+		CEB29A96242C218D004F1CC7 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				CEA095532427EAB200F81928 /* AppDelegate.swift */,
+				CEB29A92242C1C62004F1CC7 /* HostingViewController.swift */,
 				CEA095552427EAB200F81928 /* SceneDelegate.swift */,
-				CEA0958B2428024800F81928 /* HostingViewController.swift */,
 				CEA095592427EAB500F81928 /* Assets.xcassets */,
 				CEA0955E2427EAB500F81928 /* LaunchScreen.storyboard */,
 			);
@@ -163,9 +173,14 @@
 		CEA095522427EAB200F81928 /* Steller */ = {
 			isa = PBXGroup;
 			children = (
+				CE07D444242B73CD001F8311 /* swiftlint.yml */,
 				CEA095612427EAB500F81928 /* Info.plist */,
 				CE529617242B6AAF0003D4D9 /* Project */,
 				CEA095572427EAB200F81928 /* ContentView.swift */,
+				CE07D446242B87A5001F8311 /* StoryPreview.swift */,
+				CEB29A94242C1E30004F1CC7 /* StoryPreviewPage.swift */,
+				CEB29A96242C218D004F1CC7 /* Triangle.swift */,
+				CE07D448242C10AD001F8311 /* AppState.swift */,
 				CE52960B24281E380003D4D9 /* FeedViewModel.swift */,
 				CEA095892427F21200F81928 /* Card.swift */,
 				CE52960F242B655E0003D4D9 /* Model */,
@@ -319,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA095602427EAB500F81928 /* LaunchScreen.storyboard in Resources */,
+				CE07D445242B73CD001F8311 /* swiftlint.yml in Resources */,
 				CE07D436242B6D6A001F8311 /* Localizable.strings in Resources */,
 				CEA0955D2427EAB500F81928 /* Preview Assets.xcassets in Resources */,
 				CEA0955A2427EAB500F81928 /* Assets.xcassets in Resources */,
@@ -346,15 +362,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE07D447242B87A5001F8311 /* StoryPreview.swift in Sources */,
 				CE52960E242B62F70003D4D9 /* Theme.swift in Sources */,
 				CE529619242B6AF20003D4D9 /* Localization.swift in Sources */,
+				CEB29A93242C1C62004F1CC7 /* HostingViewController.swift in Sources */,
 				CE529607242813500003D4D9 /* Color+Hex.swift in Sources */,
 				CE529613242B661B0003D4D9 /* Log.swift in Sources */,
 				CEA095542427EAB200F81928 /* AppDelegate.swift in Sources */,
 				CEA095562427EAB200F81928 /* SceneDelegate.swift in Sources */,
 				CEA095582427EAB200F81928 /* ContentView.swift in Sources */,
-				CEA0958C2428024800F81928 /* HostingViewController.swift in Sources */,
 				CEA0958A2427F21200F81928 /* Card.swift in Sources */,
+				CE07D449242C10AD001F8311 /* AppState.swift in Sources */,
+				CEB29A95242C1E30004F1CC7 /* StoryPreviewPage.swift in Sources */,
+				CEB29A97242C218D004F1CC7 /* Triangle.swift in Sources */,
 				CE52960C24281E380003D4D9 /* FeedViewModel.swift in Sources */,
 				CE52960524280E910003D4D9 /* Story.swift in Sources */,
 			);
