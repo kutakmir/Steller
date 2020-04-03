@@ -7,3 +7,6 @@
 */
 
 "global.title" = "STELLER";
+"global.button.retry" = "Retry";
+"global.error.generic.title" = "An Error Occured";
+"global.error.generic.description" = "Something went wrong";

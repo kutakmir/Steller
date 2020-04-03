@@ -23,7 +23,7 @@ protocol StoryPresentable: Identifiable {
     var snippet: Snippet { get }
 }
 
-struct Story: Codable, StoryPresentable {
+struct Story: Codable, StoryPresentable, Equatable, Identifiable {
     let id: String
     let title: String
     let likes: Likes
@@ -31,6 +31,11 @@ struct Story: Codable, StoryPresentable {
     let cover_src: URL
     let cover_bg: String
     let snippet: Snippet
+
+    // MARK: - Equatable
+    static func == (lhs: Story, rhs: Story) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct Likes: Codable {

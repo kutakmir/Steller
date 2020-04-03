@@ -7,3 +7,6 @@
 */
 
 "global.title" = "STELLER";
+"global.button.retry" = "Zkusit znovu";
+"global.error.generic.title" = "Chyba";
+"global.error.generic.description" = "Něco se pokazilo";

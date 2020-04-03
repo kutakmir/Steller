@@ -25,7 +25,7 @@ struct StoryPreviewPage<T: StoryPresentable>: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipped()
-                }
+                }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .leading).edgesIgnoringSafeArea(.all)
                 Triangle()
                     .frame(width: geometry.size.width, height: geometry.size.height / 3.0).offset(x: 0, y: geometry.size.height / 2.0)
                     .foregroundColor(.white)
