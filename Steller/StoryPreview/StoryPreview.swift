@@ -8,34 +8,51 @@
 
 import SwiftUI
 
-struct StoryPreview: View {
+struct StoryPreview: View, LoadableViewProtocol {
 
-    @Environment(\.injected) var container: DependencyInjectionContainer
+    @Environment(\.injected) var injected: DependencyInjectionContainer
 
-    var stories: [Story]
     @State var selectedStoryIndex: Int
-    let onDismiss: () -> Void
 
     var body: some View {
+        loadableContentView
+    }
 
-        StoryPreviewPage(item: self.stories[selectedStoryIndex]).gesture(
-            DragGesture(minimumDistance: 20).onEnded({ (value: DragGesture.Value) in
+    // MARK: - LoadableViewProtocol
+    typealias LoadableType = [Story]
+    var loadableModel: Loadable<[Story]> {
+        return injected.appState.value.userData.stories
+    }
 
-                withAnimation {
-                    if value.location.x < value.startLocation.x - 20 {
-                        self.selectedStoryIndex = (self.selectedStoryIndex + 1) % self.stories.count
-                        return
+    func loadedView(_ items: [Story], showSearch: Bool) -> AnyView {
+        AnyView(
+            StoryPreviewPage(item: items[selectedStoryIndex]).gesture(
+                DragGesture(minimumDistance: 20).onEnded({ (value: DragGesture.Value) in
+
+                    withAnimation {
+                        if value.location.x < value.startLocation.x - 20 {
+                            // Swipe right
+                            self.selectedStoryIndex = (self.selectedStoryIndex + 1) % items.count
+                            return
+                        }
+                        if value.location.x > value.startLocation.x + 20 {
+                            // Swipe left
+                            self.selectedStoryIndex = (self.selectedStoryIndex + items.count - 1) % items.count
+                            return
+                        }
+                        if value.location.y > value.startLocation.y + 30 {
+                            // Swipe down
+                            withAnimation {
+                                self.injected.appState.value.router.dismiss()
+                            }
+                        }
                     }
-                    if value.location.x > value.startLocation.x + 20 {
-                        self.selectedStoryIndex = (self.selectedStoryIndex + self.stories.count - 1) % self.stories.count
-                        return
-                    }
-                    if value.location.y > value.startLocation.y + 30 {
-                        self.onDismiss()
-                    }
-                }
-            })
+                })
+            )
         )
     }
 
+    func loadContent() {
+        // Do nothing, the content has been loaded at this point
+    }
 }

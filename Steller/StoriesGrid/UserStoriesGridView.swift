@@ -41,7 +41,7 @@ struct UserStoriesGridView: View, LoadableViewProtocol {
                                     id: "story/\(item.id)",
                                     title: item.title,
                                     userData: nil,
-                                    view: AnyView(self.storyPreview(stories: stories, selectedStoryIndex: selectedStoryIndex))
+                                    view: AnyView(self.storyPreview(selectedStoryIndex: selectedStoryIndex))
                                 )
                             )
                         }
@@ -53,15 +53,9 @@ struct UserStoriesGridView: View, LoadableViewProtocol {
         })
     }
 
-    func storyPreview(stories: [Story], selectedStoryIndex: Int) -> some View {
-        StoryPreview(stories: stories, selectedStoryIndex: selectedStoryIndex, onDismiss: {
-            withAnimation {
-                self.injected.appState.value.router.dismiss()
-            }
-        }).inject(self.injected)
+    func storyPreview(selectedStoryIndex: Int) -> some View {
+        StoryPreview(selectedStoryIndex: selectedStoryIndex).inject(self.injected)
     }
-
-    // MARK: - LoadableViewProtocol
 
     var modelUpdate: AnyPublisher<Loadable<[Story]>, Never>? {
         injected.appState.updates(for: \.userData.stories)

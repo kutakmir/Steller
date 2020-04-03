@@ -9,13 +9,15 @@
 import Combine
 import SwiftUI
 
+/**
+ Defines custom routing, similar to Navigation stack
+ */
 protocol RoutableViewProtocol {
 
     var routingModel: [RouterComponent] { get }
     var routerUpdate: AnyPublisher<[RouterComponent], Never>? { get }
 
     func routableStack() -> AnyView
-    func routingView(atIndex index: Int) -> AnyView
 
 }
 
@@ -29,15 +31,11 @@ extension RoutableViewProtocol {
     func routableStack() -> AnyView {
         AnyView(
             ZStack {
-                ForEach(0..<routingModel.count, id: \.self) { index in
-                    return self.routingView(atIndex: index)
+                if self.routingModel.count > 0 {
+                    self.routingModel.last!.view
                 }
             }
         )
-    }
-
-    func routingView(atIndex index: Int) -> AnyView {
-        return routingModel[index].view
     }
 
 }
