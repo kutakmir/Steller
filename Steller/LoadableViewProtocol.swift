@@ -15,13 +15,8 @@ protocol LoadableViewProtocol {
     var loadableModel: Loadable<LoadableType> { get }
     var modelUpdate: AnyPublisher<Loadable<LoadableType>, Never>? { get }
 
-    var routingModel: [RouterComponent] { get }
-    var routerUpdate: AnyPublisher<[RouterComponent], Never>? { get }
-
-    func routableStack() -> AnyView
-    func routingView(atIndex index: Int) -> AnyView
-
     var loadableContentView: AnyView { get }
+
     func notRequestedView() -> AnyView
     func loadingView(_ previouslyLoaded: LoadableType?) -> AnyView
     func failedView(_ error: Error) -> AnyView
@@ -47,26 +42,6 @@ extension LoadableViewProtocol {
 
     var modelUpdate: AnyPublisher<Loadable<[Story]>, Never>? {
         return nil
-    }
-
-    var routerUpdate: AnyPublisher<[RouterComponent], Never>? {
-        return nil
-    }
-
-    // MARK: - Routing
-
-    func routableStack() -> AnyView {
-        AnyView(
-            ZStack {
-                ForEach(0..<routingModel.count, id: \.self) { index in
-                    return self.routingView(atIndex: index)
-                }
-            }
-        )
-    }
-
-    func routingView(atIndex index: Int) -> AnyView {
-        return routingModel[index].view
     }
 
     // MARK: - Default Views

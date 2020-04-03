@@ -8,27 +8,26 @@
 
 import SwiftUI
 
-struct StoryPreview<T: StoryPresentable>: View {
+struct StoryPreview: View {
 
     @Environment(\.injected) var container: DependencyInjectionContainer
-    
-    @State var stories: [T]
-    @State var selectedStory: Int
 
+    var stories: [Story]
+    @State var selectedStoryIndex: Int
     let onDismiss: () -> Void
 
     var body: some View {
 
-        StoryPreviewPage(item: self.stories[selectedStory]).gesture(
+        StoryPreviewPage(item: self.stories[selectedStoryIndex]).gesture(
             DragGesture(minimumDistance: 20).onEnded({ (value: DragGesture.Value) in
 
                 withAnimation {
                     if value.location.x < value.startLocation.x - 20 {
-                        self.selectedStory = (self.selectedStory + 1) % self.stories.count
+                        self.selectedStoryIndex = (self.selectedStoryIndex + 1) % self.stories.count
                         return
                     }
                     if value.location.x > value.startLocation.x + 20 {
-                        self.selectedStory = (self.selectedStory + self.stories.count - 1) % self.stories.count
+                        self.selectedStoryIndex = (self.selectedStoryIndex + self.stories.count - 1) % self.stories.count
                         return
                     }
                     if value.location.y > value.startLocation.y + 30 {

@@ -45,6 +45,7 @@
 		CEDF7C1924371EB600FD4EFF /* DefaultLoadableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1824371EB600FD4EFF /* DefaultLoadableViews.swift */; };
 		CEDF7C1B2437248F00FD4EFF /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1A2437248F00FD4EFF /* Router.swift */; };
 		CEDF7C2024373A9A00FD4EFF /* UserStoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1F24373A9A00FD4EFF /* UserStoriesGridView.swift */; };
+		CEDF7C2224373C6200FD4EFF /* RoutableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C2124373C6200FD4EFF /* RoutableViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		CEDF7C1824371EB600FD4EFF /* DefaultLoadableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoadableViews.swift; sourceTree = "<group>"; };
 		CEDF7C1A2437248F00FD4EFF /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CEDF7C1F24373A9A00FD4EFF /* UserStoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoriesGridView.swift; sourceTree = "<group>"; };
+		CEDF7C2124373C6200FD4EFF /* RoutableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				CED3B4A5242FA71200BC811C /* Injected */,
 				CED3B4AA242FAA3C00BC811C /* ANHelpers */,
 				CEDF7C14243696D200FD4EFF /* LoadableViewProtocol.swift */,
+				CEDF7C2124373C6200FD4EFF /* RoutableViewProtocol.swift */,
 				CEDF7C1824371EB600FD4EFF /* DefaultLoadableViews.swift */,
 				CE52960F242B655E0003D4D9 /* Model */,
 				CE529614242B66200003D4D9 /* Helper */,
@@ -444,6 +447,7 @@
 				CED3B4A2242F9F8100BC811C /* DependencyInjector.swift in Sources */,
 				CE07D447242B87A5001F8311 /* StoryPreview.swift in Sources */,
 				CE52960E242B62F70003D4D9 /* Theme.swift in Sources */,
+				CEDF7C2224373C6200FD4EFF /* RoutableViewProtocol.swift in Sources */,
 				CE529619242B6AF20003D4D9 /* Localization.swift in Sources */,
 				CEDF7C1B2437248F00FD4EFF /* Router.swift in Sources */,
 				CEDF7C1724371A4300FD4EFF /* ActivityIndicator.swift in Sources */,
