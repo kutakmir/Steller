@@ -5,7 +5,7 @@ https://medium.com/swlh/clean-architecture-for-swiftui-6d6c4eb1cf6a
 
 # Discussion
 
-## Key differences between Clean Architecture and MVVM
+## Key differences between this implementation of Clean Architecture and MVVM
 - In Clean Architecture the ViewModel from the MVVM breaks down to: Interactor (business logic), Repository (data requests).
 - View breaks down to the View and Router.
 
