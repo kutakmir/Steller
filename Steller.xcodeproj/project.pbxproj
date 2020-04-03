@@ -42,7 +42,7 @@
 		CED3B4BC2430C62800BC811C /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3B4BB2430C62800BC811C /* AppEnvironment.swift */; };
 		CEDF7C15243696D200FD4EFF /* LoadableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C14243696D200FD4EFF /* LoadableViewProtocol.swift */; };
 		CEDF7C1724371A4300FD4EFF /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1624371A4300FD4EFF /* ActivityIndicator.swift */; };
-		CEDF7C1924371EB600FD4EFF /* DefaultLoadableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1824371EB600FD4EFF /* DefaultLoadableViews.swift */; };
+		CEDF7C1924371EB600FD4EFF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1824371EB600FD4EFF /* ErrorView.swift */; };
 		CEDF7C1B2437248F00FD4EFF /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1A2437248F00FD4EFF /* Router.swift */; };
 		CEDF7C2024373A9A00FD4EFF /* UserStoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1F24373A9A00FD4EFF /* UserStoriesGridView.swift */; };
 		CEDF7C2224373C6200FD4EFF /* RoutableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C2124373C6200FD4EFF /* RoutableViewProtocol.swift */; };
@@ -106,7 +106,7 @@
 		CED3B4BB2430C62800BC811C /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		CEDF7C14243696D200FD4EFF /* LoadableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewProtocol.swift; sourceTree = "<group>"; };
 		CEDF7C1624371A4300FD4EFF /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		CEDF7C1824371EB600FD4EFF /* DefaultLoadableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoadableViews.swift; sourceTree = "<group>"; };
+		CEDF7C1824371EB600FD4EFF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		CEDF7C1A2437248F00FD4EFF /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CEDF7C1F24373A9A00FD4EFF /* UserStoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoriesGridView.swift; sourceTree = "<group>"; };
 		CEDF7C2124373C6200FD4EFF /* RoutableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutableViewProtocol.swift; sourceTree = "<group>"; };
@@ -208,15 +208,10 @@
 				CE529617242B6AAF0003D4D9 /* Project */,
 				CEDF7C1C2437395000FD4EFF /* StoryPreview */,
 				CEDF7C1D2437396C00FD4EFF /* StoriesGrid */,
-				CEDF7C1E2437398500FD4EFF /* Shared Views */,
-				CED3B4B7242FAF9400BC811C /* StoriesWebRepository.swift */,
-				CED3B4A5242FA71200BC811C /* Injected */,
-				CED3B4AA242FAA3C00BC811C /* ANHelpers */,
-				CEDF7C14243696D200FD4EFF /* LoadableViewProtocol.swift */,
-				CEDF7C2124373C6200FD4EFF /* RoutableViewProtocol.swift */,
-				CEDF7C1824371EB600FD4EFF /* DefaultLoadableViews.swift */,
+				CED3B4A5242FA71200BC811C /* Clean Architecture */,
 				CE52960F242B655E0003D4D9 /* Model */,
 				CE529614242B66200003D4D9 /* Helper */,
+				CEDF7C1E2437398500FD4EFF /* Shared Views */,
 				CE52961C242B6B2C0003D4D9 /* Assets */,
 				CEA0955B2427EAB500F81928 /* Preview Content */,
 				CE07D438242B6D6A001F8311 /* Localizable.strings */,
@@ -250,25 +245,20 @@
 			path = StellerUITests;
 			sourceTree = "<group>";
 		};
-		CED3B4A5242FA71200BC811C /* Injected */ = {
+		CED3B4A5242FA71200BC811C /* Clean Architecture */ = {
 			isa = PBXGroup;
 			children = (
 				CED3B4A1242F9F8100BC811C /* DependencyInjector.swift */,
 				CEDF7C1A2437248F00FD4EFF /* Router.swift */,
 				CE07D448242C10AD001F8311 /* AppState.swift */,
-			);
-			path = Injected;
-			sourceTree = "<group>";
-		};
-		CED3B4AA242FAA3C00BC811C /* ANHelpers */ = {
-			isa = PBXGroup;
-			children = (
 				CED3B4B1242FAED900BC811C /* WebRepository.swift */,
+				CEDF7C14243696D200FD4EFF /* LoadableViewProtocol.swift */,
+				CEDF7C2124373C6200FD4EFF /* RoutableViewProtocol.swift */,
 				CED3B4AF242FAEA100BC811C /* Loadable.swift */,
 				CED3B4B3242FAEE800BC811C /* APICall.swift */,
 				CED3B4AB242FAA5900BC811C /* Helpers.swift */,
 			);
-			path = ANHelpers;
+			path = "Clean Architecture";
 			sourceTree = "<group>";
 		};
 		CEDF7C1C2437395000FD4EFF /* StoryPreview */ = {
@@ -286,6 +276,7 @@
 				CEA095572427EAB200F81928 /* ContentView.swift */,
 				CEDF7C1F24373A9A00FD4EFF /* UserStoriesGridView.swift */,
 				CED3B4AD242FAABE00BC811C /* StoriesInteractor.swift */,
+				CED3B4B7242FAF9400BC811C /* StoriesWebRepository.swift */,
 				CEA095892427F21200F81928 /* Card.swift */,
 			);
 			path = StoriesGrid;
@@ -294,6 +285,7 @@
 		CEDF7C1E2437398500FD4EFF /* Shared Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEDF7C1824371EB600FD4EFF /* ErrorView.swift */,
 				CEDF7C1624371A4300FD4EFF /* ActivityIndicator.swift */,
 				CEB29A96242C218D004F1CC7 /* Triangle.swift */,
 			);
@@ -464,7 +456,7 @@
 				CEA095582427EAB200F81928 /* ContentView.swift in Sources */,
 				CEA0958A2427F21200F81928 /* Card.swift in Sources */,
 				CED3B4B0242FAEA100BC811C /* Loadable.swift in Sources */,
-				CEDF7C1924371EB600FD4EFF /* DefaultLoadableViews.swift in Sources */,
+				CEDF7C1924371EB600FD4EFF /* ErrorView.swift in Sources */,
 				CED3B4BA2430A67300BC811C /* MockedData.swift in Sources */,
 				CE07D449242C10AD001F8311 /* AppState.swift in Sources */,
 				CED3B4AE242FAABE00BC811C /* StoriesInteractor.swift in Sources */,

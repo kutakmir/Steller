@@ -1,5 +1,5 @@
 //
-//  DefaultLoadableViews.swift
+//  ErrorView.swift
 //  Steller
 //
 //  Created by Miroslav Kutak on 03/04/2020.
