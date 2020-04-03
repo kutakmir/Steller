@@ -10,63 +10,73 @@ import Combine
 import Grid
 import SwiftUI
 
-//struct UserStoriesGridView<T: StoryPresentable>: View, LoadableViewProtocol {
-//
-//    @State var displaysStoryPreview: Bool = false
-//    @Environment(\.injected) private var injected: DependencyInjectionContainer
-//
-//    var body: some View {
-//        loadableContentView
-//    }
-//
-//    // MARK: - LoadableViewProtocol
-//
-//    typealias LoadableType = [Story]
-//    @State var loadableModel: Loadable<[Story]> = .notRequested
-//    @State var routingModel = [RouterComponent]()
-//
-//    func loadedView(_ items: [Story], showSearch: Bool) -> AnyView {
-//        AnyView(
-//            GeometryReader { geometry in
-//                ScrollView {
-//                    Grid(items) { item in
-//                        Card(item: item).onTapGesture {
-//
-//                            self.injected.appState.value.router.navigate(to:
-//                                RouterComponent(
-//                                    id: "story/\(item.id)",
-//                                    title: item.title,
-//                                    userData: nil,
-//                                    view: AnyView(self.storyPreview(story: item))
-//                                )
-//                            )
-//                        }
-//                    }
-//                }
-//                .gridStyle(
-//                    ModularGridStyle(columns: .count(2), rows: .fixed(geometry.size.height/2))
-//                )
-//        })
-//    }
-//
-//    func storyPreview(story: Story) -> some View {
-//        StoryPreview(stories: self.loadableModel.value ?? [], selectedStory: 0, onDismiss: {
-//            withAnimation {
-//                self.injected.appState.value.router.dismiss()
-//            }
-//        }).inject(self.injected)
-//    }
-//
-//    // MARK: - Actions
-//    func loadContent() {
-//        injected.interactors.storiesInteractor
-//            .loadStories()
-//    }
-//}
-//
-//struct UserStoriesGridView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserStoriesGridView<Story>().inject(AppEnvironment.bootstrap().container)
-//    }
-//}
-//
+struct UserStoriesGridView: View, LoadableViewProtocol {
+
+    @Environment(\.injected) private var injected: DependencyInjectionContainer
+
+    var body: some View {
+        loadableContentView
+        .onReceive(self.modelUpdate!) {
+            self.loadableModel = $0
+        }
+    }
+
+    // MARK: - LoadableViewProtocol
+
+    typealias LoadableType = [Story]
+    @State var loadableModel: Loadable<[Story]> = .notRequested
+
+    func loadedView(_ items: [Story], showSearch: Bool) -> AnyView {
+        AnyView(
+            GeometryReader { geometry in
+                ScrollView {
+                    Grid(items) { item in
+                        Card(item: item).onTapGesture {
+
+                            let stories = self.loadableModel.value ?? []
+                            let selectedStoryIndex = stories.firstIndex(of: item) ?? 0
+
+                            self.injected.appState.value.router.navigate(to:
+                                RouterComponent(
+                                    id: "story/\(item.id)",
+                                    title: item.title,
+                                    userData: nil,
+                                    view: AnyView(self.storyPreview(stories: stories, selectedStoryIndex: selectedStoryIndex))
+                                )
+                            )
+                        }
+                    }
+                }
+                .gridStyle(
+                    ModularGridStyle(columns: .count(2), rows: .fixed(geometry.size.height/2))
+                )
+        })
+    }
+
+    func storyPreview(stories: [Story], selectedStoryIndex: Int) -> some View {
+        StoryPreview(stories: stories, selectedStoryIndex: selectedStoryIndex, onDismiss: {
+            withAnimation {
+                self.injected.appState.value.router.dismiss()
+            }
+        }).inject(self.injected)
+    }
+
+    // MARK: - LoadableViewProtocol
+
+    var modelUpdate: AnyPublisher<Loadable<[Story]>, Never>? {
+        injected.appState.updates(for: \.userData.stories)
+    }
+
+    // MARK: - Actions
+    func loadContent() {
+        injected.interactors.storiesInteractor
+            .loadStories()
+    }
+}
+
+struct UserStoriesGridView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserStoriesGridView().inject(AppEnvironment.bootstrap().container)
+    }
+}
+
