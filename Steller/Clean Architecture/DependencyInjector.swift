@@ -15,11 +15,13 @@ struct DependencyInjectionContainer: EnvironmentKey {
     
     let appState: Store<AppState>
     let interactors: Interactors
+    let theme: Theme
     
     static var defaultValue: Self { Self.default }
     
     private static let `default` = Self(appState: Store(AppState()),
-                                        interactors: Interactors.stub)
+                                        interactors: Interactors.stub,
+                                        theme: Theme.default)
 
     struct Interactors {
         let storiesInteractor: StoriesInteractor
@@ -40,7 +42,7 @@ extension EnvironmentValues {
 #if DEBUG
 extension DependencyInjectionContainer {
     static var preview: Self {
-        Self(appState: Store(AppState.preview), interactors: .stub)
+        Self(appState: Store(AppState.preview), interactors: .stub, theme: Theme.default)
     }
 }
 #endif

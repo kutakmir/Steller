@@ -27,7 +27,7 @@
 		CEA095762427EAB600F81928 /* StellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA095752427EAB600F81928 /* StellerUITests.swift */; };
 		CEA095852427EB0600F81928 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CEA095842427EB0600F81928 /* Swinject */; };
 		CEA095882427ED6900F81928 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = CEA095872427ED6900F81928 /* Grid */; };
-		CEA0958A2427F21200F81928 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA095892427F21200F81928 /* Card.swift */; };
+		CEA0958A2427F21200F81928 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA095892427F21200F81928 /* StoryCardView.swift */; };
 		CEB29A93242C1C62004F1CC7 /* HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB29A92242C1C62004F1CC7 /* HostingViewController.swift */; };
 		CEB29A95242C1E30004F1CC7 /* StoryPreviewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB29A94242C1E30004F1CC7 /* StoryPreviewPage.swift */; };
 		CEB29A97242C218D004F1CC7 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB29A96242C218D004F1CC7 /* Triangle.swift */; };
@@ -40,6 +40,12 @@
 		CED3B4B8242FAF9400BC811C /* StoriesWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3B4B7242FAF9400BC811C /* StoriesWebRepository.swift */; };
 		CED3B4BA2430A67300BC811C /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3B4B92430A67300BC811C /* MockedData.swift */; };
 		CED3B4BC2430C62800BC811C /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3B4BB2430C62800BC811C /* AppEnvironment.swift */; };
+		CEDB0B7A24377221002269F0 /* WebRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB0B7924377221002269F0 /* WebRepositoryTests.swift */; };
+		CEDB0B7C24377269002269F0 /* MockedWebRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB0B7B24377269002269F0 /* MockedWebRepositories.swift */; };
+		CEDB0B7E2438D606002269F0 /* RequestMocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB0B7D2438D606002269F0 /* RequestMocking.swift */; };
+		CEDB0B802438D622002269F0 /* MockedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB0B7F2438D622002269F0 /* MockedResponse.swift */; };
+		CEDB0B822438DEC3002269F0 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB0B812438DEC3002269F0 /* Mock.swift */; };
+		CEDB0B842438DF02002269F0 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB0B832438DF01002269F0 /* TestHelpers.swift */; };
 		CEDF7C15243696D200FD4EFF /* LoadableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C14243696D200FD4EFF /* LoadableViewProtocol.swift */; };
 		CEDF7C1724371A4300FD4EFF /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1624371A4300FD4EFF /* ActivityIndicator.swift */; };
 		CEDF7C1924371EB600FD4EFF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF7C1824371EB600FD4EFF /* ErrorView.swift */; };
@@ -91,7 +97,7 @@
 		CEA095712427EAB600F81928 /* StellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA095752427EAB600F81928 /* StellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellerUITests.swift; sourceTree = "<group>"; };
 		CEA095772427EAB600F81928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEA095892427F21200F81928 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		CEA095892427F21200F81928 /* StoryCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		CEB29A92242C1C62004F1CC7 /* HostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostingViewController.swift; sourceTree = "<group>"; };
 		CEB29A94242C1E30004F1CC7 /* StoryPreviewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPreviewPage.swift; sourceTree = "<group>"; };
 		CEB29A96242C218D004F1CC7 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
@@ -104,6 +110,12 @@
 		CED3B4B7242FAF9400BC811C /* StoriesWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesWebRepository.swift; sourceTree = "<group>"; };
 		CED3B4B92430A67300BC811C /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		CED3B4BB2430C62800BC811C /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		CEDB0B7924377221002269F0 /* WebRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepositoryTests.swift; sourceTree = "<group>"; };
+		CEDB0B7B24377269002269F0 /* MockedWebRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedWebRepositories.swift; sourceTree = "<group>"; };
+		CEDB0B7D2438D606002269F0 /* RequestMocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMocking.swift; sourceTree = "<group>"; };
+		CEDB0B7F2438D622002269F0 /* MockedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedResponse.swift; sourceTree = "<group>"; };
+		CEDB0B812438DEC3002269F0 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		CEDB0B832438DF01002269F0 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		CEDF7C14243696D200FD4EFF /* LoadableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewProtocol.swift; sourceTree = "<group>"; };
 		CEDF7C1624371A4300FD4EFF /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		CEDF7C1824371EB600FD4EFF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -232,6 +244,12 @@
 			children = (
 				CEA0956A2427EAB600F81928 /* StellerTests.swift */,
 				CEA0956C2427EAB600F81928 /* Info.plist */,
+				CEDB0B7924377221002269F0 /* WebRepositoryTests.swift */,
+				CEDB0B7D2438D606002269F0 /* RequestMocking.swift */,
+				CEDB0B7F2438D622002269F0 /* MockedResponse.swift */,
+				CEDB0B7B24377269002269F0 /* MockedWebRepositories.swift */,
+				CEDB0B832438DF01002269F0 /* TestHelpers.swift */,
+				CEDB0B812438DEC3002269F0 /* Mock.swift */,
 			);
 			path = StellerTests;
 			sourceTree = "<group>";
@@ -277,7 +295,7 @@
 				CEDF7C1F24373A9A00FD4EFF /* UserStoriesGridView.swift */,
 				CED3B4AD242FAABE00BC811C /* StoriesInteractor.swift */,
 				CED3B4B7242FAF9400BC811C /* StoriesWebRepository.swift */,
-				CEA095892427F21200F81928 /* Card.swift */,
+				CEA095892427F21200F81928 /* StoryCardView.swift */,
 			);
 			path = StoriesGrid;
 			sourceTree = "<group>";
@@ -454,7 +472,7 @@
 				CEA095542427EAB200F81928 /* AppDelegate.swift in Sources */,
 				CEA095562427EAB200F81928 /* SceneDelegate.swift in Sources */,
 				CEA095582427EAB200F81928 /* ContentView.swift in Sources */,
-				CEA0958A2427F21200F81928 /* Card.swift in Sources */,
+				CEA0958A2427F21200F81928 /* StoryCardView.swift in Sources */,
 				CED3B4B0242FAEA100BC811C /* Loadable.swift in Sources */,
 				CEDF7C1924371EB600FD4EFF /* ErrorView.swift in Sources */,
 				CED3B4BA2430A67300BC811C /* MockedData.swift in Sources */,
@@ -472,7 +490,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDB0B7E2438D606002269F0 /* RequestMocking.swift in Sources */,
+				CEDB0B802438D622002269F0 /* MockedResponse.swift in Sources */,
+				CEDB0B842438DF02002269F0 /* TestHelpers.swift in Sources */,
+				CEDB0B7C24377269002269F0 /* MockedWebRepositories.swift in Sources */,
+				CEDB0B7A24377221002269F0 /* WebRepositoryTests.swift in Sources */,
 				CEA0956B2427EAB600F81928 /* StellerTests.swift in Sources */,
+				CEDB0B822438DEC3002269F0 /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

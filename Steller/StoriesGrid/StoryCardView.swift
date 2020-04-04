@@ -1,5 +1,5 @@
 //
-//  Card.swift
+//  StoryCardView.swift
 //  Steller
 //
 //  Created by Miroslav Kutak on 22/03/2020.
@@ -9,8 +9,10 @@
 import SwiftUI
 import URLImage
 
-struct Card<T: StoryPresentable>: View {
+struct StoryCardView<T: StoryPresentable>: View {
     let item: T
+
+    @Environment(\.injected) private var injected: DependencyInjectionContainer
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
@@ -26,20 +28,20 @@ struct Card<T: StoryPresentable>: View {
             }
             .cornerRadius(8)
             HStack(alignment: .center, spacing: 0) {
-                Text(item.user.display_name).foregroundColor(Color.Main.activeElement).onTapGesture {
+                Text(item.user.display_name).foregroundColor(injected.theme.colors.main.activeElement).onTapGesture {
                     Log("User profile selected! \(self.item.user.display_name)")
                 }
                 Spacer()
 
                 if item.likes.count > 0 {
                     HStack(alignment: .center, spacing: 8) {
-                        Image.Like.filled.onTapGesture {
+                        injected.theme.images.like.filled.onTapGesture {
                             Log("Like! \(self.item.title)")
                         }
                         Text("\(item.likes.count)").onTapGesture {
                             Log("Display the list of people who liked this story...")
                         }
-                    }.foregroundColor(item.likes.current_user ? Color.Like.currentUser : Color.Like.normal)
+                    }.foregroundColor(item.likes.current_user ? injected.theme.colors.like.currentUser : injected.theme.colors.like.normal)
                 }
             }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 4))
         }
@@ -47,9 +49,9 @@ struct Card<T: StoryPresentable>: View {
 }
 
 #if DEBUG
-struct Card_Previews: PreviewProvider {
+struct StoryCardView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryPreviewPage(item: Story.mockedItem)
+        StoryCardView(item: Story.mockedItem)
     }
 }
 #endif

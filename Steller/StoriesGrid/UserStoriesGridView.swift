@@ -31,7 +31,7 @@ struct UserStoriesGridView: View, LoadableViewProtocol {
             GeometryReader { geometry in
                 ScrollView {
                     Grid(items) { item in
-                        Card(item: item).onTapGesture {
+                        StoryCardView(item: item).onTapGesture {
 
                             let stories = self.loadableModel.value ?? []
                             let selectedStoryIndex = stories.firstIndex(of: item) ?? 0
@@ -54,7 +54,7 @@ struct UserStoriesGridView: View, LoadableViewProtocol {
     }
 
     func storyPreview(selectedStoryIndex: Int) -> some View {
-        StoryPreview(selectedStoryIndex: selectedStoryIndex).inject(self.injected)
+        StoryPreview(selectedStoryIndex: selectedStoryIndex)
     }
 
     var modelUpdate: AnyPublisher<Loadable<[Story]>, Never>? {

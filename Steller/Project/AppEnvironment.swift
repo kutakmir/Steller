@@ -6,7 +6,7 @@
 //  Copyright © 2020 Curly Bracers. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 import Combine
 
 struct AppEnvironment {
@@ -20,7 +20,7 @@ extension AppEnvironment {
         let session = configuredURLSession()
         let webRepositories = configuredWebRepositories(session: session)
         let interactors = configuredInteractors(appState: appState, webRepositories: webRepositories)
-        let diContainer = DependencyInjectionContainer(appState: appState, interactors: interactors)
+        let diContainer = DependencyInjectionContainer(appState: appState, interactors: interactors, theme: Theme.default)
         return AppEnvironment(container: diContainer)
     }
 

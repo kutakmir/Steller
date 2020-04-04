@@ -8,30 +8,51 @@
 
 import SwiftUI
 
-extension Color {
+struct Theme {
+    let colors: Colors
+    let images: Images
 
-    struct Main {
-        static let primary = Color.white
-        static let activeElement = Color.blue
+    struct Colors {
+        let main: Main
+        let topBar: Bar
+        let like: Action
+
+        struct Main {
+            let primary: Color
+            let activeElement: Color
+        }
+
+        struct Bar {
+            let title: Color
+            let background: Color
+        }
+
+        struct Action {
+            let normal: Color
+            let currentUser: Color
+        }
     }
 
-    struct TopBar {
-        static let background = Color(white: 0.9)
-        static let title = Color.black
+
+    struct Images {
+        let like: Action
+
+        struct Action {
+            let empty: Image
+            let filled: Image
+        }
     }
 
-    struct Like {
-        static let normal = Color.gray
-        static let currentUser = Color.blue
-    }
+    static let `default`: Self = {
 
-}
+        let colors = Theme.Colors(main: Theme.Colors.Main(primary: .white, activeElement: .black),
+                                  topBar: Theme.Colors.Bar(title: .black, background: Color(white: 0.9)),
+                                  like: Theme.Colors.Action(normal: .gray, currentUser: .blue))
 
+        let images = Theme.Images(like: Theme.Images.Action(empty: Image(systemName: "suit.heart"),
+                                                            filled: Image(systemName: "suit.heart.fill")))
 
-extension Image {
-
-    struct Like {
-        static let empty = Image(systemName: "suit.heart")
-        static let filled = Image(systemName: "suit.heart.fill")
-    }
+        return Theme(colors: colors,
+                     images: images)
+    }()
 }

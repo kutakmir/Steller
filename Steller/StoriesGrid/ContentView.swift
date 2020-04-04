@@ -21,12 +21,12 @@ struct ContentView: View, RoutableViewProtocol {
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 ZStack {
-                    Color.TopBar.background
+                    injected.theme.colors.topBar.background
                         .frame(width: nil, height: 44, alignment: .center)
                     Text(Localize("global.title"))
-                        .foregroundColor(Color.TopBar.title)
+                        .foregroundColor(injected.theme.colors.topBar.title)
                 }
-                UserStoriesGridView().inject(self.injected)
+                UserStoriesGridView()
             }
             routableStack()
                 .animation(.easeInOut)
