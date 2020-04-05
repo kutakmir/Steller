@@ -4,7 +4,6 @@ This demo app contains some best practices for iOS app development in Swift:
 - MVVM architecture
 - Theming
 - Localization
-- Unit tests
 - Custom SwiftUI elements
 
 # Architecture
