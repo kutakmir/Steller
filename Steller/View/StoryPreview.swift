@@ -8,11 +8,9 @@
 
 import SwiftUI
 
-struct StoryPreview<T: StoryPresentable>: View {
-
-    @EnvironmentObject var store: Store<AppState>
+struct StoryPreview: View {
     
-    @State var stories: [T]
+    @State var stories: [Story]
     @State var selectedStory: Int
 
     let onDismiss: () -> Void

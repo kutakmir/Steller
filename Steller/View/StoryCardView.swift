@@ -1,5 +1,5 @@
 //
-//  Card.swift
+//  StoryCardView.swift
 //  Steller
 //
 //  Created by Miroslav Kutak on 22/03/2020.
@@ -9,8 +9,8 @@
 import SwiftUI
 import URLImage
 
-struct Card<T: StoryPresentable>: View {
-    let item: T
+struct StoryCardView: View {
+    let item: Story
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {

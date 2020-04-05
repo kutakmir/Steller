@@ -9,8 +9,8 @@
 import SwiftUI
 import URLImage
 
-struct StoryPreviewPage<T: StoryPresentable>: View {
-    let item: T
+struct StoryPreviewPage: View {
+    let item: Story
 
     var body: some View {
 

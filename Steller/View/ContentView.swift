@@ -9,12 +9,9 @@
 import SwiftUI
 import Grid
 
-struct ContentView<T: StoryPresentable>: View {
+struct ContentView: View {
 
-    var viewModel: [String]?
-    @State var stories = [T]()
-
-    //    @EnvironmentObject var store: Store<AppState>
+    @ObservedObject var viewModel = FeedViewModel()
     @State var displaysStoryPreview: Bool = false
 
     var body: some View {
@@ -29,8 +26,8 @@ struct ContentView<T: StoryPresentable>: View {
                 }
                 GeometryReader { geometry in
                     ScrollView {
-                        Grid(self.stories) { item in
-                            Card(item: item).onTapGesture {
+                        Grid(self.viewModel.stories) { item in
+                            StoryCardView(item: item).onTapGesture {
                                 withAnimation {
                                     self.displaysStoryPreview = true
                                 }
@@ -43,37 +40,18 @@ struct ContentView<T: StoryPresentable>: View {
                 }
             }
             if self.displaysStoryPreview {
-                StoryPreview(stories: self.stories, selectedStory: 0, onDismiss: {
+                StoryPreview(stories: self.viewModel.stories, selectedStory: 0, onDismiss: {
                     withAnimation {
                         self.displaysStoryPreview = false
                     }
                 })
             }
-        }.onAppear(perform: loadData)
-    }
-
-    func loadData() {
-        guard let url = URL(string: "https://api.steller.co/v1/users/76794126980351029/stories") else {
-            return
-        }
-        let request = URLRequest(url: url)
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode(FeedResponse.self, from: data) {
-                    // we have good data – go back to the main thread
-                    DispatchQueue.main.async {
-                        // update our UI
-                        self.stories = decodedResponse.data as? [T] ?? []
-                    }
-                }
-            }
-        }.resume()
+        }.onAppear(perform: viewModel.loadData)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView<Story>()
+        ContentView()
     }
 }

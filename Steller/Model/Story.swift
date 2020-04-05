@@ -12,18 +12,7 @@ import Foundation
 // DEV INTERVIEW NOTE: I am using 1:1 mapping to make the maintenance and communication between backend & frontend easier (purposefully not defining the coding keys)
 // DEV INTERVIEW NOTE: The model layer is very lightweight, so it's better to put it in a single file for better clarity
 
-// TODO: define the StoryPresentable as a ViewModel
-protocol StoryPresentable: Identifiable {
-    var id: String { get }
-    var title: String { get }
-    var likes: Likes { get }
-    var user: User { get }
-    var cover_src: URL { get }
-    var cover_bg: String { get }
-    var snippet: Snippet { get }
-}
-
-struct Story: Codable, StoryPresentable {
+struct Story: Codable, Identifiable {
     let id: String
     let title: String
     let likes: Likes
